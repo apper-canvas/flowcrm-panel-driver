@@ -1,4 +1,4 @@
-import { motion } => 'framer-motion';
+import { motion } from 'framer-motion';
 import ApperIcon from '@/components/ApperIcon';
 import Button from '@/components/atoms/Button';
 import Text from '@/components/atoms/Text';
