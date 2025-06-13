@@ -52,21 +52,3 @@ export const communicationService = {
 }
 
 export default communicationService
-    
-    this.communications[index] = updatedCommunication;
-    return { ...updatedCommunication };
-  }
-
-  async delete(id) {
-    await delay(250);
-    const index = this.communications.findIndex(c => c.id === id);
-    if (index === -1) {
-      throw new Error('Communication not found');
-    }
-    
-    this.communications.splice(index, 1);
-    return { success: true };
-  }
-}
-
-export default new CommunicationService();
