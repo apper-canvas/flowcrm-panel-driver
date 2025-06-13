@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import ApperIcon from './components/ApperIcon';
-import { routeArray } from './config/routes';
+import ApperIcon from '@/components/ApperIcon';
+import { routeArray } from '@/config/routes';
+import NotificationsDropdownOrganism from '@/components/organisms/NotificationsDropdownOrganism';
+import Input from '@/components/atoms/Input';
 
 const Layout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [notificationsOpen, setNotificationsOpen] = useState(false);
+const [notificationsOpen, setNotificationsOpen] = useState(false); // No longer needed directly, managed by NotificationsDropdownOrganism
   const location = useLocation();
 
   const notifications = [
@@ -41,53 +43,19 @@ const Layout = () => {
           <div className="hidden md:flex flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <ApperIcon name="Search" size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
+<ApperIcon name="Search" size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <Input
                 type="text"
                 placeholder="Search contacts, deals, tasks..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                className="w-full pl-10 pr-4 py-2"
               />
-            </div>
-          </div>
 
           {/* Header Actions */}
           <div className="flex items-center space-x-3">
             {/* Notifications */}
-            <div className="relative">
-              <button
-                onClick={() => setNotificationsOpen(!notificationsOpen)}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative"
-              >
-                <ApperIcon name="Bell" size={20} className="text-gray-600" />
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-accent text-white text-xs rounded-full flex items-center justify-center">
-                  3
-                </span>
-              </button>
-
-              <AnimatePresence>
-                {notificationsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    className="absolute right-0 top-12 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50"
-                  >
-                    <div className="p-4 border-b border-gray-200">
-                      <h3 className="font-semibold text-gray-900">Notifications</h3>
-                    </div>
-                    <div className="max-h-80 overflow-y-auto">
-                      {notifications.map((notification) => (
-                        <div key={notification.id} className="p-4 border-b border-gray-100 hover:bg-gray-50">
-                          <p className="text-sm text-gray-900">{notification.text}</p>
-                          <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+<NotificationsDropdownOrganism notifications={notifications} />
 
             {/* User Menu */}
             <div className="w-8 h-8 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center">
@@ -209,11 +177,7 @@ const Layout = () => {
       </div>
 
       {/* Click outside to close notifications */}
-      {notificationsOpen && (
-        <div
-          className="fixed inset-0 z-30"
-          onClick={() => setNotificationsOpen(false)}
-        />
+{/* Notifications dropdown is now self-contained, no global click outside needed here unless other global modals are added */}
       )}
     </div>
   );

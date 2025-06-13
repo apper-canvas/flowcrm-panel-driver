@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ApperIcon from '../components/ApperIcon';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
+import Text from '@/components/atoms/Text';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -18,22 +20,22 @@ const NotFound = () => {
           <ApperIcon name="AlertCircle" size={48} className="text-white" />
         </motion.div>
         
-        <h1 className="text-6xl font-heading font-bold text-gray-900 mb-4">404</h1>
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Page Not Found</h2>
-        <p className="text-gray-600 mb-8 max-w-md mx-auto">
+        <Text as="h1" className="text-6xl font-heading font-bold text-gray-900 mb-4">404</Text>
+        <Text as="h2" className="text-2xl font-semibold text-gray-700 mb-4">Page Not Found</Text>
+        <Text className="text-gray-600 mb-8 max-w-md mx-auto">
           The page you're looking for doesn't exist or has been moved to a different location.
-        </p>
+        </Text>
         
         <div className="space-y-4">
           <Link to="/pipeline">
-            <motion.button
+            <Button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors shadow-sm inline-flex items-center"
+              className="px-6 py-3 inline-flex items-center"
             >
               <ApperIcon name="ArrowLeft" size={18} className="mr-2" />
               Back to Pipeline
-            </motion.button>
+            </Button>
           </Link>
           
           <div className="text-center">
@@ -51,4 +53,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
-import MainFeature from '../components/MainFeature';
+import HomeDashboardOrganism from '@/components/organisms/HomeDashboardOrganism';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="h-full"
     >
-      <MainFeature />
+      <HomeDashboardOrganism />
     </motion.div>
   );
 };
 
-export default Home;
+export default HomePage;

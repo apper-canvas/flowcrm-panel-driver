@@ -2,13 +2,13 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './Layout';
-import Home from './pages/Home';
-import Contacts from './pages/Contacts';
-import Pipeline from './pages/Pipeline';
-import Tasks from './pages/Tasks';
-import Analytics from './pages/Analytics';
-import Settings from './pages/Settings';
-import NotFound from './pages/NotFound';
+import HomePage from '@/components/pages/HomePage';
+import ContactsPage from '@/components/pages/ContactsPage';
+import PipelinePage from '@/components/pages/PipelinePage';
+import TasksPage from '@/components/pages/TasksPage';
+import AnalyticsPage from '@/components/pages/AnalyticsPage';
+import SettingsPage from '@/components/pages/SettingsPage';
+import NotFoundPage from '@/components/pages/NotFoundPage';
 
 function App() {
   return (
@@ -18,13 +18,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Navigate to="/pipeline" replace />} />
-              <Route path="home" element={<Home />} />
-              <Route path="contacts" element={<Contacts />} />
-              <Route path="pipeline" element={<Pipeline />} />
-              <Route path="tasks" element={<Tasks />} />
-              <Route path="analytics" element={<Analytics />} />
-              <Route path="settings" element={<Settings />} />
-              <Route path="*" element={<NotFound />} />
+<Route path="home" element={<HomePage />} />
+              <Route path="contacts" element={<ContactsPage />} />
+              <Route path="pipeline" element={<PipelinePage />} />
+              <Route path="tasks" element={<TasksPage />} />
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </AnimatePresence>

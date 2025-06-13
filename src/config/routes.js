@@ -1,9 +1,9 @@
-import Home from '../pages/Home';
-import Contacts from '../pages/Contacts';
-import Pipeline from '../pages/Pipeline';  
-import Tasks from '../pages/Tasks';
-import Analytics from '../pages/Analytics';
-import Settings from '../pages/Settings';
+import HomePage from '@/components/pages/HomePage';
+import ContactsPage from '@/components/pages/ContactsPage';
+import PipelinePage from '@/components/pages/PipelinePage';  
+import TasksPage from '@/components/pages/TasksPage';
+import AnalyticsPage from '@/components/pages/AnalyticsPage';
+import SettingsPage from '@/components/pages/SettingsPage';
 
 export const routes = {
   home: {
@@ -11,42 +11,42 @@ export const routes = {
     label: 'Home',
     path: '/home',
     icon: 'Home',
-    component: Home
+component: HomePage
   },
   contacts: {
     id: 'contacts',
     label: 'Contacts',
     path: '/contacts',
     icon: 'Users',
-    component: Contacts
+component: ContactsPage
   },
   pipeline: {
     id: 'pipeline',
     label: 'Pipeline',
     path: '/pipeline',
     icon: 'GitBranch',
-    component: Pipeline
+component: PipelinePage
   },
   tasks: {
     id: 'tasks',
     label: 'Tasks',
     path: '/tasks',
     icon: 'CheckSquare',
-    component: Tasks
+component: TasksPage
   },
   analytics: {
     id: 'analytics',
     label: 'Analytics',
     path: '/analytics',
     icon: 'BarChart3',
-    component: Analytics
+component: AnalyticsPage
   },
   settings: {
     id: 'settings',
     label: 'Settings',
     path: '/settings',
     icon: 'Settings',
-    component: Settings
+component: SettingsPage
   }
 };
 
