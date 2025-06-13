@@ -32,16 +32,16 @@ const TaskListItem = ({ task, relatedContact, index, onToggleComplete, onEdit, o
     }
   };
 
-  return (
-    <Card
+return (
+    <motion.div
       key={task.id}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ y: -2, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
-      className={`p-4 hover:shadow-md transition-all duration-200 ${task.completed ? 'opacity-75' : ''}`}
     >
+      <Card className={`p-4 hover:shadow-md transition-all duration-200 ${task.completed ? 'opacity-75' : ''}`}>
       <div className="flex items-start space-x-4">
         <Checkbox checked={task.completed} onChange={() => onToggleComplete(task)} />
 
@@ -94,7 +94,8 @@ const TaskListItem = ({ task, relatedContact, index, onToggleComplete, onEdit, o
           </div>
         </div>
       </div>
-    </Card>
+</Card>
+    </motion.div>
   );
 };
 
