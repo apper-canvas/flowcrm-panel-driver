@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@acmecorp.com",
+    "phone": "+1 (555) 123-4567",
+    "company": "Acme Corporation",
+    "status": "qualified",
+    "assignedTo": "John Doe",
+    "createdAt": "2024-01-15T10:30:00Z",
+    "lastContactedAt": "2024-01-20T14:45:00Z",
+    "dealValue": 75000
+  },
+  {
+    "id": "2",
+    "name": "Michael Chen",
+    "email": "m.chen@techstart.io",
+    "phone": "+1 (555) 987-6543",
+    "company": "TechStart Inc",
+    "status": "proposal",
+    "assignedTo": "Jane Smith",
+    "createdAt": "2024-01-18T09:15:00Z",
+    "lastContactedAt": "2024-01-22T11:30:00Z",
+    "dealValue": 120000
+  },
+  {
+    "id": "3",
+    "name": "Emily Rodriguez",
+    "email": "emily.r@innovatetech.com",
+    "phone": "+1 (555) 456-7890",
+    "company": "InnovateTech Solutions",
+    "status": "negotiation",
+    "assignedTo": "John Doe",
+    "createdAt": "2024-01-10T16:20:00Z",
+    "lastContactedAt": "2024-01-23T13:15:00Z",
+    "dealValue": 95000
+  },
+  {
+    "id": "4",
+    "name": "David Kim",
+    "email": "david@globalventures.com",
+    "phone": "+1 (555) 321-0987",
+    "company": "Global Ventures LLC",
+    "status": "lead",
+    "assignedTo": "Jane Smith",
+    "createdAt": "2024-01-22T08:45:00Z",
+    "lastContactedAt": "2024-01-22T08:45:00Z",
+    "dealValue": 50000
+  },
+  {
+    "id": "5",
+    "name": "Lisa Thompson",
+    "email": "lisa.thompson@brightfuture.org",
+    "phone": "+1 (555) 654-3210",
+    "company": "Bright Future Enterprises",
+    "status": "closed",
+    "assignedTo": "Mike Johnson",
+    "createdAt": "2024-01-05T12:00:00Z",
+    "lastContactedAt": "2024-01-19T15:30:00Z",
+    "dealValue": 85000
+  }
+]

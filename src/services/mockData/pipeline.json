@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lead",
+    "name": "Lead",
+    "stages": ["Initial Contact", "Qualification"],
+    "order": 1
+  },
+  {
+    "id": "qualified",
+    "name": "Qualified",
+    "stages": ["Needs Analysis", "Solution Fit"],
+    "order": 2
+  },
+  {
+    "id": "proposal",
+    "name": "Proposal",
+    "stages": ["Demo Completed", "Proposal Sent"],
+    "order": 3
+  },
+  {
+    "id": "negotiation",
+    "name": "Negotiation",
+    "stages": ["Terms Discussion", "Contract Review"],
+    "order": 4
+  },
+  {
+    "id": "closed",
+    "name": "Closed Won",
+    "stages": ["Contract Signed", "Payment Received"],
+    "order": 5
+  }
+]

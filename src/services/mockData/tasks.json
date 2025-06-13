@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "Follow up with Acme Corp proposal",
+    "description": "Send contract and schedule implementation call with Sarah Johnson",
+    "contactId": "1",
+    "assignedTo": "John Doe",
+    "dueDate": "1/25/2024 5:00:00 PMZ",
+    "completed": false,
+    "priority": "high"
+  },
+  {
+    "id": "2",
+    "title": "Prepare demo for TechStart Inc",
+    "description": "Create customized demo focusing on enterprise features and integrations",
+    "contactId": "2",
+    "assignedTo": "Jane Smith",
+    "dueDate": "2024-01-26T15:00:00Z",
+    "completed": false,
+    "priority": "high"
+  },
+  {
+    "id": "3",
+    "title": "Draft revised contract terms",
+    "description": "Update payment schedule to quarterly terms as requested by InnovateTech",
+    "contactId": "3",
+    "assignedTo": "John Doe",
+    "dueDate": "2024-01-24T12:00:00Z",
+    "completed": false,
+    "priority": "medium"
+  },
+  {
+    "id": "4",
+    "title": "Research Global Ventures requirements",
+    "description": "Gather information about their current tech stack and integration needs",
+    "contactId": "4",
+    "assignedTo": "Jane Smith",
+    "dueDate": "2024-01-28T10:00:00Z",
+    "completed": false,
+    "priority": "low"
+  },
+  {
+    "id": "5",
+    "title": "Schedule implementation kickoff",
+    "description": "Coordinate with Bright Future team for project start date and requirements gathering",
+    "contactId": "5",
+    "assignedTo": "Mike Johnson",
+    "dueDate": "2024-01-23T09:00:00Z",
+    "completed": true,
+    "priority": "medium"
+  },
+  {
+    "id": "6",
+    "title": "Send weekly team report",
+    "description": "Compile and send weekly sales performance report to management",
+    "contactId": "",
+    "assignedTo": "John Doe",
+    "dueDate": "2024-01-26T18:00:00Z",
+    "completed": true,
+    "priority": "low"
+  }
+]

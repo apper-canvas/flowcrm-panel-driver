@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "contactId": "1",
+    "type": "email",
+    "subject": "Follow up on proposal discussion",
+    "notes": "Sent detailed proposal with pricing breakdown. Client interested in premium package. Scheduled call for next week to discuss implementation timeline.",
+    "date": "2024-01-20T14:45:00Z",
+    "createdBy": "John Doe"
+  },
+  {
+    "id": "2",
+    "contactId": "2",
+    "type": "call",
+    "subject": "Initial discovery call",
+    "notes": "Great call! Michael is very interested in our enterprise solution. Main pain points: scalability and integration with existing systems. He wants to see a demo next week.",
+    "date": "2024-01-22T11:30:00Z",
+    "createdBy": "Jane Smith"
+  },
+  {
+    "id": "3",
+    "contactId": "3",
+    "type": "meeting",
+    "subject": "Contract negotiation meeting",
+    "notes": "Productive meeting discussing contract terms. Emily agreed to most points but wants to negotiate payment schedule. She prefers quarterly payments instead of annual.",
+    "date": "2024-01-23T13:15:00Z",
+    "createdBy": "John Doe"
+  },
+  {
+    "id": "4",
+    "contactId": "1",
+    "type": "email",
+    "subject": "Contract sent for review",
+    "notes": "Sent final contract for Sarah's review. All pricing and terms finalized based on our previous discussions. Waiting for legal team approval on their end.",
+    "date": "2024-01-18T16:20:00Z",
+    "createdBy": "John Doe"
+  },
+  {
+    "id": "5",
+    "contactId": "4",
+    "type": "note",
+    "subject": "LinkedIn connection established",
+    "notes": "Connected with David on LinkedIn. He mentioned they're looking to upgrade their current solution within the next 6 months. Good timing for our Q2 push.",
+    "date": "2024-01-22T08:45:00Z",
+    "createdBy": "Jane Smith"
+  },
+  {
+    "id": "6",
+    "contactId": "5",
+    "type": "call",
+    "subject": "Deal closure confirmation",
+    "notes": "Fantastic news! Lisa confirmed they're moving forward with the full enterprise package. Contract signed and payment processed. Implementation starts next month.",
+    "date": "2024-01-19T15:30:00Z",
+    "createdBy": "Mike Johnson"
+  }
+]
