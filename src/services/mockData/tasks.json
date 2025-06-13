@@ -5,7 +5,7 @@
     "description": "Send contract and schedule implementation call with Sarah Johnson",
     "contactId": "1",
     "assignedTo": "John Doe",
-    "dueDate": "1/25/2024 5:00:00 PMZ",
+"dueDate": "2024-01-25T17:00:00Z",
     "completed": false,
     "priority": "high"
   },

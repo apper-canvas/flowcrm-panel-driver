@@ -6,25 +6,62 @@ import Checkbox from '@/components/atoms/Checkbox';
 import Text from '@/components/atoms/Text';
 import Card from '@/components/molecules/Card';
 
-const TaskListItem = ({ task, relatedContact, index, onToggleComplete, onEdit, onDelete }) => {
+const TaskListItem = ({ 
+  task = {}, 
+  relatedContact = null, 
+  index = 0, 
+  onToggleComplete = () => {}, 
+  onEdit = () => {}, 
+  onDelete = () => {} 
+}) => {
+  // Validate task object and provide defaults
+  const safeTask = {
+    id: '',
+    title: 'Untitled Task',
+    dueDate: new Date().toISOString(),
+    completed: false,
+    priority: 'low',
+    description: '',
+    ...task
+  };
+
   const getDateDisplay = (dateString) => {
-    const date = new Date(dateString);
-    if (isToday(date)) return 'Today';
-    if (isTomorrow(date)) return 'Tomorrow';
-    if (isPast(date)) return 'Overdue';
-    return format(date, 'MMM d');
+    if (!dateString) return 'No date';
+    
+    try {
+      const date = new Date(dateString);
+      // Check if date is valid
+      if (isNaN(date.getTime())) return 'Invalid date';
+      
+      if (isToday(date)) return 'Today';
+      if (isTomorrow(date)) return 'Tomorrow';
+      if (isPast(date)) return 'Overdue';
+      return format(date, 'MMM d');
+    } catch (error) {
+      console.warn('Date parsing error:', error);
+      return 'Invalid date';
+    }
   };
 
   const getDateColor = (dateString, completed) => {
     if (completed) return 'text-green-600';
-    const date = new Date(dateString);
-    if (isPast(date) && !isToday(date)) return 'text-red-600';
-    if (isToday(date)) return 'text-amber-600';
-    return 'text-gray-600';
+    if (!dateString) return 'text-gray-600';
+    
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return 'text-gray-600';
+      
+      if (isPast(date) && !isToday(date)) return 'text-red-600';
+      if (isToday(date)) return 'text-amber-600';
+      return 'text-gray-600';
+    } catch (error) {
+      console.warn('Date color parsing error:', error);
+      return 'text-gray-600';
+    }
   };
 
   const getPriorityClasses = (priority) => {
-    switch (priority) {
+    switch (priority?.toLowerCase()) {
       case 'high': return 'bg-red-100 text-red-700';
       case 'medium': return 'bg-yellow-100 text-yellow-700';
       case 'low': return 'bg-gray-100 text-gray-700';
