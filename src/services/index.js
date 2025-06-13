@@ -1,5 +1,11 @@
-export { contactService } from './api/contactService';
-export { pipelineService } from './api/pipelineService';
-export { taskService } from './api/taskService';
-export { communicationService } from './api/communicationService';
-export { companyService } from './api/companyService';
+import contactService from './api/contactService';
+import pipelineService from './api/pipelineService';
+import taskService from './api/taskService';
+import communicationService from './api/communicationService';
+import companyService from './api/companyService';
+
+export { contactService };
+export { pipelineService };
+export { taskService };
+export { communicationService };
+export { companyService };
