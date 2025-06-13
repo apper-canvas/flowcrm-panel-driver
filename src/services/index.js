@@ -11,16 +11,7 @@ export {
   communicationService,
   companyService
 }
-
-// Re-export as named exports for compatibility
-export { 
-  contactService, 
-  pipelineService, 
-  taskService, 
-  communicationService, 
-  companyService 
-}
-
+// Re-export as default for direct imports
 // Re-export as default for direct imports
 export default {
   contactService,
