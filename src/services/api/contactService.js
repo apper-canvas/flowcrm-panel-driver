@@ -1,53 +1,57 @@
-import contactsData from '../mockData/contacts.json';
+import contacts from '../mockData/contacts.json'
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const contactData = [...contacts]
 
-class ContactService {
-  constructor() {
-    this.contacts = [...contactsData];
-  }
+export const contactService = {
+  // Get all contacts
+  getAllContacts: () => {
+    return Promise.resolve(contactData)
+  },
 
-  async getAll() {
-    await delay(300);
-    return [...this.contacts];
-  }
+  // Get contact by ID
+  getContactById: (id) => {
+    const contact = contactData.find(c => c.id === id)
+    return Promise.resolve(contact)
+  },
 
-  async getById(id) {
-    await delay(200);
-    const contact = this.contacts.find(c => c.id === id);
-    if (!contact) {
-      throw new Error('Contact not found');
-    }
-    return { ...contact };
-  }
-
-  async create(contactData) {
-    await delay(400);
+  // Create new contact
+  createContact: (contactInfo) => {
     const newContact = {
-      ...contactData,
       id: Date.now().toString(),
+      ...contactInfo,
       createdAt: new Date().toISOString(),
-      lastContactedAt: new Date().toISOString()
-    };
-    this.contacts.unshift(newContact);
-    return { ...newContact };
-  }
-
-  async update(id, updates) {
-    await delay(350);
-    const index = this.contacts.findIndex(c => c.id === id);
-    if (index === -1) {
-      throw new Error('Contact not found');
+      updatedAt: new Date().toISOString()
     }
-    
-    const updatedContact = {
-      ...this.contacts[index],
-      ...updates,
-      lastContactedAt: new Date().toISOString()
-    };
-    
-    this.contacts[index] = updatedContact;
-    return { ...updatedContact };
+    contactData.push(newContact)
+    return Promise.resolve(newContact)
+  },
+
+  // Update contact
+  updateContact: (id, updates) => {
+    const index = contactData.findIndex(c => c.id === id)
+    if (index !== -1) {
+      contactData[index] = {
+        ...contactData[index],
+        ...updates,
+        updatedAt: new Date().toISOString()
+      }
+      return Promise.resolve(contactData[index])
+    }
+    return Promise.reject(new Error('Contact not found'))
+  },
+
+  // Delete contact
+  deleteContact: (id) => {
+    const index = contactData.findIndex(c => c.id === id)
+    if (index !== -1) {
+      const deleted = contactData.splice(index, 1)[0]
+      return Promise.resolve(deleted)
+    }
+    return Promise.reject(new Error('Contact not found'))
+  }
+}
+
+export default contactService
   }
 
   async delete(id) {

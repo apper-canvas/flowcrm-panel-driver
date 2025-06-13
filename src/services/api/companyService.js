@@ -1,53 +1,57 @@
-import companies from '../mockData/companies.json';
+import companies from '../mockData/companies.json'
 
-let companyData = [...companies];
+const companyData = [...companies]
 
 export const companyService = {
-  async getAll() {
-    await new Promise(resolve => setTimeout(resolve, 300));
-    return [...companyData];
+  // Get all companies
+  getAllCompanies: () => {
+    return Promise.resolve(companyData)
   },
 
-  async getById(id) {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    const company = companyData.find(c => c.id === id);
-    if (!company) {
-      throw new Error('Company not found');
-    }
-    return { ...company };
+  // Get company by ID
+  getCompanyById: (id) => {
+    const company = companyData.find(c => c.id === id)
+    return Promise.resolve(company)
   },
 
-  async create(companyInput) {
-    await new Promise(resolve => setTimeout(resolve, 400));
+  // Create new company
+  createCompany: (companyData) => {
     const newCompany = {
-      id: Date.now(),
-      ...companyInput,
+      id: Date.now().toString(),
+      ...companyData,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
-    };
-    companyData.push(newCompany);
-    return { ...newCompany };
-  },
-
-  async update(id, updates) {
-    await new Promise(resolve => setTimeout(resolve, 350));
-    const index = companyData.findIndex(c => c.id === id);
-    if (index === -1) {
-      throw new Error('Company not found');
     }
-    const updatedCompany = {
-      ...companyData[index],
-      ...updates,
-      updatedAt: new Date().toISOString()
-    };
-    companyData[index] = updatedCompany;
-    return { ...updatedCompany };
+    companyData.push(newCompany)
+    return Promise.resolve(newCompany)
   },
 
-  async delete(id) {
-    await new Promise(resolve => setTimeout(resolve, 250));
-    const index = companyData.findIndex(c => c.id === id);
-    if (index === -1) {
+  // Update company
+  updateCompany: (id, updates) => {
+    const index = companyData.findIndex(c => c.id === id)
+    if (index !== -1) {
+      companyData[index] = {
+        ...companyData[index],
+        ...updates,
+        updatedAt: new Date().toISOString()
+      }
+      return Promise.resolve(companyData[index])
+    }
+    return Promise.reject(new Error('Company not found'))
+  },
+
+  // Delete company
+  deleteCompany: (id) => {
+    const index = companyData.findIndex(c => c.id === id)
+    if (index !== -1) {
+      const deleted = companyData.splice(index, 1)[0]
+      return Promise.resolve(deleted)
+    }
+    return Promise.reject(new Error('Company not found'))
+  }
+}
+
+export default companyService
       throw new Error('Company not found');
     }
     companyData.splice(index, 1);

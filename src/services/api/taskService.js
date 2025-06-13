@@ -1,53 +1,57 @@
-import tasksData from '../mockData/tasks.json';
+import tasks from '../mockData/tasks.json'
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const taskData = [...tasks]
 
-class TaskService {
-  constructor() {
-    this.tasks = [...tasksData];
-  }
+export const taskService = {
+  // Get all tasks
+  getAllTasks: () => {
+    return Promise.resolve(taskData)
+  },
 
-  async getAll() {
-    await delay(280);
-    return [...this.tasks];
-  }
+  // Get task by ID
+  getTaskById: (id) => {
+    const task = taskData.find(t => t.id === id)
+    return Promise.resolve(task)
+  },
 
-  async getById(id) {
-    await delay(200);
-    const task = this.tasks.find(t => t.id === id);
-    if (!task) {
-      throw new Error('Task not found');
-    }
-    return { ...task };
-  }
-
-  async getByContactId(contactId) {
-    await delay(250);
-    return this.tasks.filter(t => t.contactId === contactId).map(t => ({ ...t }));
-  }
-
-  async create(taskData) {
-    await delay(350);
+  // Create new task
+  createTask: (taskInfo) => {
     const newTask = {
-      ...taskData,
       id: Date.now().toString(),
-      completed: false
-    };
-    this.tasks.unshift(newTask);
-    return { ...newTask };
-  }
-
-  async update(id, updates) {
-    await delay(300);
-    const index = this.tasks.findIndex(t => t.id === id);
-    if (index === -1) {
-      throw new Error('Task not found');
+      ...taskInfo,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
     }
-    
-    const updatedTask = {
-      ...this.tasks[index],
-      ...updates
-    };
+    taskData.push(newTask)
+    return Promise.resolve(newTask)
+  },
+
+  // Update task
+  updateTask: (id, updates) => {
+    const index = taskData.findIndex(t => t.id === id)
+    if (index !== -1) {
+      taskData[index] = {
+        ...taskData[index],
+        ...updates,
+        updatedAt: new Date().toISOString()
+      }
+      return Promise.resolve(taskData[index])
+    }
+    return Promise.reject(new Error('Task not found'))
+  },
+
+  // Delete task
+  deleteTask: (id) => {
+    const index = taskData.findIndex(t => t.id === id)
+    if (index !== -1) {
+      const deleted = taskData.splice(index, 1)[0]
+      return Promise.resolve(deleted)
+    }
+    return Promise.reject(new Error('Task not found'))
+  }
+}
+
+export default taskService
     
     this.tasks[index] = updatedTask;
     return { ...updatedTask };

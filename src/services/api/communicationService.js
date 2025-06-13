@@ -1,53 +1,57 @@
-import communicationsData from '../mockData/communications.json';
+import communications from '../mockData/communications.json'
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const communicationData = [...communications]
 
-class CommunicationService {
-  constructor() {
-    this.communications = [...communicationsData];
-  }
+export const communicationService = {
+  // Get all communications
+  getAllCommunications: () => {
+    return Promise.resolve(communicationData)
+  },
 
-  async getAll() {
-    await delay(250);
-    return [...this.communications];
-  }
+  // Get communication by ID
+  getCommunicationById: (id) => {
+    const communication = communicationData.find(c => c.id === id)
+    return Promise.resolve(communication)
+  },
 
-  async getById(id) {
-    await delay(200);
-    const communication = this.communications.find(c => c.id === id);
-    if (!communication) {
-      throw new Error('Communication not found');
-    }
-    return { ...communication };
-  }
-
-  async getByContactId(contactId) {
-    await delay(300);
-    return this.communications.filter(c => c.contactId === contactId).map(c => ({ ...c }));
-  }
-
-  async create(communicationData) {
-    await delay(400);
+  // Create new communication
+  createCommunication: (commData) => {
     const newCommunication = {
-      ...communicationData,
       id: Date.now().toString(),
-      date: communicationData.date || new Date().toISOString()
-    };
-    this.communications.unshift(newCommunication);
-    return { ...newCommunication };
-  }
-
-  async update(id, updates) {
-    await delay(300);
-    const index = this.communications.findIndex(c => c.id === id);
-    if (index === -1) {
-      throw new Error('Communication not found');
+      ...commData,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
     }
-    
-    const updatedCommunication = {
-      ...this.communications[index],
-      ...updates
-    };
+    communicationData.push(newCommunication)
+    return Promise.resolve(newCommunication)
+  },
+
+  // Update communication
+  updateCommunication: (id, updates) => {
+    const index = communicationData.findIndex(c => c.id === id)
+    if (index !== -1) {
+      communicationData[index] = {
+        ...communicationData[index],
+        ...updates,
+        updatedAt: new Date().toISOString()
+      }
+      return Promise.resolve(communicationData[index])
+    }
+    return Promise.reject(new Error('Communication not found'))
+  },
+
+  // Delete communication
+  deleteCommunication: (id) => {
+    const index = communicationData.findIndex(c => c.id === id)
+    if (index !== -1) {
+      const deleted = communicationData.splice(index, 1)[0]
+      return Promise.resolve(deleted)
+    }
+    return Promise.reject(new Error('Communication not found'))
+  }
+}
+
+export default communicationService
     
     this.communications[index] = updatedCommunication;
     return { ...updatedCommunication };
