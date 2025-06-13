@@ -1,8 +1,8 @@
-import contactService from './api/contactService';
-import pipelineService from './api/pipelineService';
-import taskService from './api/taskService';
-import communicationService from './api/communicationService';
-import companyService from './api/companyService';
+import { contactService } from '@/services/api/contactService';
+import { pipelineService } from '@/services/api/pipelineService';
+import { taskService } from '@/services/api/taskService';
+import { communicationService } from '@/services/api/communicationService';
+import { companyService } from '@/services/api/companyService';
 
 export { contactService };
 export { pipelineService };
