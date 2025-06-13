@@ -21,9 +21,3 @@ export default {
   communicationService,
   companyService
 }
-
-export { contactService };
-export { pipelineService };
-export { taskService };
-export { communicationService };
-export { companyService };
