@@ -14,11 +14,11 @@ export const companyService = {
     return Promise.resolve(company)
   },
 
-  // Create new company
-  createCompany: (companyData) => {
+// Create new company
+  createCompany: (newCompanyData) => {
     const newCompany = {
       id: Date.now().toString(),
-      ...companyData,
+      ...newCompanyData,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     }
@@ -52,9 +52,3 @@ export const companyService = {
 }
 
 export default companyService
-      throw new Error('Company not found');
-    }
-    companyData.splice(index, 1);
-    return true;
-  }
-};
