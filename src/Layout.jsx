@@ -40,10 +40,9 @@ const [notificationsOpen, setNotificationsOpen] = useState(false); // No longer 
           </div>
 
           {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-md mx-8">
+<div className="hidden md:flex flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <ApperIcon name="Search" size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-<ApperIcon name="Search" size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <Input
                 type="text"
                 placeholder="Search contacts, deals, tasks..."
@@ -51,6 +50,8 @@ const [notificationsOpen, setNotificationsOpen] = useState(false); // No longer 
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2"
               />
+            </div>
+          </div>
 
           {/* Header Actions */}
           <div className="flex items-center space-x-3">
