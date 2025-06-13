@@ -111,7 +111,7 @@ const ContactListOrganism = () => {
     );
   }
 
-  return (
+return (
     <div className="p-6 h-full overflow-auto">
       <div className="mb-6">
         <Text as="h1" className="text-2xl font-heading font-bold text-gray-900 mb-4">Contacts</Text>
@@ -188,6 +188,7 @@ const ContactListOrganism = () => {
                 index={index}
                 onEdit={setEditingContact}
                 onDelete={handleDeleteContact}
+                showCompanyInfo={true}
               />
             ))}
           </AnimatePresence>

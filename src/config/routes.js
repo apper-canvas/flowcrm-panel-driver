@@ -4,6 +4,7 @@ import PipelinePage from '@/components/pages/PipelinePage';
 import TasksPage from '@/components/pages/TasksPage';
 import AnalyticsPage from '@/components/pages/AnalyticsPage';
 import SettingsPage from '@/components/pages/SettingsPage';
+import CompanyPage from '@/components/pages/CompanyPage';
 
 export const routes = {
   home: {
@@ -41,12 +42,19 @@ component: TasksPage
     icon: 'BarChart3',
 component: AnalyticsPage
   },
+companies: {
+    id: 'companies',
+    label: 'Companies',
+    path: '/companies',
+    icon: 'Building',
+    component: CompanyPage
+  },
   settings: {
     id: 'settings',
     label: 'Settings',
     path: '/settings',
     icon: 'Settings',
-component: SettingsPage
+    component: SettingsPage
   }
 };
 
